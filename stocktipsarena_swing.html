@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080f1e">
+<title>StockTipsArena · Swing Picks</title>
+<style>
+:root{--bg:#080f1e;--panel:#142139;--panel2:#0e192c;--line:#293b56;--text:#edf4ff;--muted:#91a2bb;--green:#35dda2;--red:#ff7186;--amber:#ffd17d}
+*{box-sizing:border-box}
+body{margin:0;padding-top:env(safe-area-inset-top,0px);background:radial-gradient(ellipse at 80% -10%,#173b60,transparent 45%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:30px}
+header{padding:22px 17px;background:linear-gradient(135deg,#142b48,#101a2d);border-bottom:1px solid var(--line)}
+h1{font-size:20px;margin:0}.sub{font-size:10px;color:#a8bad2;letter-spacing:1px;margin-top:4px}#upd{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6}#upd b{color:#edf4ff}
+main{max-width:850px;margin:auto;padding:14px}
+input{width:100%;background:var(--panel2);color:#fff;border:1px solid var(--line);border-radius:11px;padding:12px;margin:2px 0 10px;font-size:14px;-webkit-appearance:none;appearance:none}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.fbtn{background:#0e192c;border:1px solid var(--line);color:var(--muted);border-radius:9px;padding:7px 11px;font-size:11px;font-weight:700;cursor:pointer}
+.fbtn.on{background:#124c3a;border-color:#238c70;color:#65e8b4}
+.card{background:linear-gradient(150deg,#172740,#101a2b);border:1px solid #293d59;border-radius:16px;margin:10px 0;padding:14px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.name{font-size:18px;font-weight:800;letter-spacing:.2px;overflow-wrap:anywhere}
+.meta{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.45}
+.badges{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.tag{display:inline-block;padding:5px 10px;border-radius:7px;font-size:10px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
+.BUY{background:#124c3a;color:#65e8b4}.SELL{background:#542637;color:#ff91a1}
+.st-target{background:#124c3a;color:#35dda2;border:1px solid #238c70}
+.st-sl{background:#542637;color:#ff7186;border:1px solid #96384b}
+.st-active{background:#2d2616;color:#ffd17d;border:1px solid #6b5626}
+.st-waiting,.st-unknown{background:#16243d;color:#91a2bb;border:1px solid #293b56}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.box{background:#0c1729;border:1px solid #263750;padding:10px 9px;border-radius:11px;min-width:0;overflow:hidden}
+.box label{display:block;font-size:10px;color:var(--muted);margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.box strong{display:block;font-size:16px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sl strong{color:var(--red)}
+.cmp-box{border-color:#2a486e}.cmp-box strong{color:#70d3ff}
+.tgt-box strong{color:var(--green)}
+.metrics{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:11px;color:var(--muted);line-height:1.5}.metrics b{color:#fff}
+.note{margin-top:9px;font-size:11px;color:var(--muted);line-height:1.45}
+a{color:#70d3ff;text-decoration:none;font-size:11px}
+.empty{padding:25px;text-align:center;color:var(--muted);background:var(--panel);border-radius:14px}
+.btn{border:1px solid #168565;background:#12624d;color:#8af4c9;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:700;cursor:pointer}
+.foot{max-width:850px;margin:auto;padding:10px 14px 0;color:#71839c;font-size:10px;line-height:1.6}
+</style>
+</head>
+<body>
+<header>
+ <h1>StockTipsArena · Swing Picks</h1>
+ <div class="sub">SWING (≤2WK) ANALYST CALLS · AGGREGATED FROM STOCKTIPSARENA.COM</div>
+ <div id="upd">Loading...</div>
+</header>
+<main>
+ <input id="q" type="search" placeholder="Search stock or SEBI advisor..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+ <div class="filters" id="filters">
+  <button class="fbtn on" data-f="all" type="button">All Calls</button>
+  <button class="fbtn" data-f="active" type="button">Active</button>
+  <button class="fbtn" data-f="target" type="button">Target Hit</button>
+  <button class="fbtn" data-f="sl" type="button">Stop Loss Hit</button>
+ </div>
+ <div id="list"><div class="empty">Loading...</div></div>
+ <button class="btn" id="ref" type="button">↻ Refresh Feed</button>
+</main>
+<div class="foot"><p>* Aggregated from public SEBI-registered advisor swing calls listed on StockTipsArena.com. Verify original advisor disclosures and live market prices before acting. Not investment advice.</p></div>
+<script>
+const FEED_URL="https://raw.githubusercontent.com/mvthegreat-appbuild/StockPro-Positional/main/stocktipsarena_swing.json";
+const CMP_URL="https://raw.githubusercontent.com/mvthegreat-appbuild/StockPro-Positional/main/cmp.json";
+let trades=[],query="",filter="all";
+
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const cash=x=>x!=null&&Number.isFinite(Number(x))?"₹"+Number(x).toLocaleString("en-IN",{maximumFractionDigits:2}):"—";
+const pct=x=>(x>0?"+":x<0?"-":"")+Math.abs(x).toFixed(2)+"%";
+const norm=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"");
+
+function stLabel(s){
+ if(s==="target")return "TARGET HIT";
+ if(s==="sl")return "STOP LOSS HIT";
+ if(s==="active")return "ACTIVE";
+ return "TRACKING";
+}
+
+function card(t){
+ const e=Number(t.entry),sl=t.sl!=null?Number(t.sl):null,tgt=t.target!=null?Number(t.target):null;
+ const cmp=t.cmp!=null?Number(t.cmp):null,sell=t.side==="SELL";
+ let status=t.status||"active";
+ if(cmp!=null&&Number.isFinite(cmp)){
+  if(sl!=null&&(sell?cmp>=sl:cmp<=sl))status="sl";
+  else if(tgt!=null&&(sell?cmp<=tgt:cmp>=tgt))status="target";
+ }
+ const risk=sl!=null&&e?Math.abs(e-sl)/e*100:null;
+ const upside=tgt!=null&&e?Math.abs(tgt-e)/e*100:null;
+ const rr=(risk&&upside)?(upside/risk):null;
+ const move=cmp!=null&&e?((sell?(e-cmp):(cmp-e))/e)*100:null;
+ const moveCol=move==null?"var(--muted)":(move>=0?"var(--green)":"var(--red)");
+ const sub=[t.name&&t.symbol&&t.name!==t.symbol?t.name:"","By "+t.advisor,t.date,t.horizon,t.source?"via "+t.source:""].filter(Boolean);
+
+ return `<article class="card">
+  <div class="top">
+   <div>
+    <div class="name">${esc(t.symbol||t.name)}</div>
+    <div class="meta">${esc(sub.join(" · "))}</div>
+   </div>
+   <div class="badges">
+    <span class="tag st-${esc(status)}">${esc(stLabel(status))}</span>
+    <span class="tag ${esc(t.side)}">${esc(t.side)}</span>
+   </div>
+  </div>
+  <div class="row">
+   <div class="box"><label>${sell?"Entry · below":"Entry · above"}</label><strong>${cash(e)}</strong></div>
+   <div class="box cmp-box"><label>${cmp!=null?"CMP / Exit":"Target Price"}</label><strong>${cmp!=null?cash(cmp):cash(tgt)}</strong></div>
+   <div class="box ${sl!=null?"sl":"tgt-box"}"><label>${sl!=null?"Stop Loss":"Target"}</label><strong>${sl!=null?cash(sl):cash(tgt)}</strong></div>
+  </div>
+  <div class="metrics">
+   ${cmp!=null&&tgt!=null?`<span>Target <b style="color:var(--green)">${cash(tgt)}</b></span>`:""}
+   <span>Move <b style="color:${moveCol}">${move==null?"—":pct(move)}</b></span>
+   ${risk!=null?`<span>Risk <b style="color:var(--red)">${risk.toFixed(2)}%</b></span>`:""}
+   ${upside!=null?`<span>Upside <b style="color:var(--green)">${upside.toFixed(2)}%</b></span>`:""}
+   ${rr!=null?`<span>R:R <b>1 : ${rr.toFixed(2)}</b></span>`:""}
+  </div>
+  ${t.note?`<div class="note">${esc(t.note)}</div>`:""}
+  ${t.link?`<div style="margin-top:9px"><a href="${esc(t.link)}" target="_blank" rel="noopener">View on StockTipsArena ↗</a></div>`:""}
+ </article>`;
+}
+
+function render(){
+ const q=norm(query);
+ const R=trades.filter(t=>{
+  if(filter!=="all"&&t.status!==filter)return false;
+  if(!q)return true;
+  return norm((t.symbol||"")+" "+(t.name||"")+" "+(t.advisor||"")+" "+(t.source||"")).includes(q);
+ });
+ document.getElementById("list").innerHTML=R.length?R.map(card).join(""):'<div class="empty">No matching StockTipsArena swing calls found.</div>';
+ const upd=document.getElementById("upd");
+ if(upd&&upd.dataset.base)upd.innerHTML=upd.dataset.base.replace("__COUNT__",R.length+" of "+trades.length);
+}
+
+async function load(){
+ const u=document.getElementById("upd");
+ let cmpMap={},updated="";
+ try{
+  const cr=await fetch(CMP_URL+"?t="+Date.now(),{cache:"no-store"});
+  if(cr.ok){const cj=await cr.json();cmpMap=cj.prices||cj||{};}
+ }catch(e){}
+ try{
+  const r=await fetch(FEED_URL+"?t="+Date.now(),{cache:"no-store"});
+  if(!r.ok)throw Error();
+  const data=await r.json();
+  trades=(data.trades||[]).map(t=>{
+   const sym=(t.symbol||"").toUpperCase();
+   const cmp=t.cmp!=null?t.cmp:(cmpMap[sym]!=null?cmpMap[sym]:null);
+   return{...t,cmp};
+  });
+  updated=data.updated?new Date(data.updated).toLocaleString("en-IN"):"just now";
+  localStorage.setItem("sta_swing_cache",JSON.stringify({trades,updated}));
+ }catch(e){
+  try{
+   const c=JSON.parse(localStorage.getItem("sta_swing_cache")||"null");
+   if(c){trades=c.trades||[];updated=c.updated||"cached";}
+  }catch(err){}
+ }
+ u.dataset.base="Showing <b>__COUNT__</b> swing calls · Updated: <b>"+esc(updated||"Pending first scraper run")+"</b>";
+ render();
+}
+
+const qi=document.getElementById("q");
+["input","keyup","change","search"].forEach(ev=>qi.addEventListener(ev,()=>{query=qi.value;render();}));
+document.getElementById("filters").addEventListener("click",e=>{
+ const b=e.target.closest("[data-f]");if(!b)return;
+ filter=b.dataset.f;
+ document.querySelectorAll(".fbtn").forEach(x=>x.classList.toggle("on",x===b));
+ render();
+});
+document.getElementById("ref").addEventListener("click",load);
+load();
+</script>
+</body>
+</html>
+
+```
