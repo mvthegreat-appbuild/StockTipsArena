@@ -1,0 +1,23 @@
+{
+  "updated": "2026-11-20T15:16:52.607684+00:00",
+  "total": 1,
+  "trades": [
+    {
+      "id": "sta-1",
+      "symbol": "STOCK",
+      "name": "Call",
+      "advisor": "(horizon not stated by the source; assumed from the target's distance)",
+      "source": "StockTipsArena",
+      "side": "SELL",
+      "horizon": "Swing (\u22642wk)",
+      "date": "",
+      "entry": 225.0,
+      "sl": 208.0,
+      "target": 280.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://stocktipsarena.com/discover"
+    }
+  ]
+}
