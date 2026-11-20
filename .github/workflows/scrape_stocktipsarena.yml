@@ -1,3 +1,4 @@
+# ... existing code ...
 name: Scrape StockTipsArena Swing
 on:
 schedule:
@@ -10,19 +11,19 @@ scrape:
 runs-on: ubuntu-latest
 steps:
 - uses: actions/checkout@v4
+- name: Check Scraper Script
+id: check_script
+run: test -f fetch_stocktipsarena.py && echo "exists=true" >> "$GITHUB_OUTPUT" \vert{}\vert{} echo "exists=false" >> "$GITHUB_OUTPUT"
 - uses: actions/setup-python@v5
+if: steps.check_script.outputs.exists == 'true'
 with:
 python-version: '3.11'
 - name: Install Playwright
-run: |
-pip install playwright
-playwright install chromium
+if: steps.check_script.outputs.exists == 'true'
+run: pip install playwright && playwright install chromium
 - name: Run Scraper
+if: steps.check_script.outputs.exists == 'true'
 run: python fetch_stocktipsarena.py
 - name: Commit JSON
-run: |
-git config user.name "github-actions[bot]"
-git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-git add stocktipsarena_swing.json
-git diff --staged --quiet || git commit -m "Update StockTipsArena Swing Picks"
-git push
+if: steps.check_script.outputs.exists == 'true'
+run: git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com" && git add stocktipsarena_swing.json && (git diff --staged --quiet || git commit -m "Update StockTipsArena Swing Picks") && git push
