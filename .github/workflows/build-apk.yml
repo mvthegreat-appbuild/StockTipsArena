@@ -21,11 +21,17 @@ jobs:
       - run: npm install
       - run: npx cap add android
       - run: npx cap sync android
-      - name: Build debug APK
+      - name: Build debug APK (with retry)
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug
+          for i in 1 2 3; do
+            echo "Attempt $i"
+            ./gradlew assembleDebug --no-daemon && break
+            if [ "$i" = "3" ]; then exit 1; fi
+            echo "Failed, waiting 60 seconds..."
+            sleep 60
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: swing-picks-apk
