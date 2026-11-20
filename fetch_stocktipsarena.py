@@ -1,8 +1,11 @@
-```python
 import json
 import re
 import datetime
 from playwright.sync_api import sync_playwright
+
+SKIP = {"BUY", "SELL", "SWING", "TARGET", "ENTRY", "CMP", "SL", "HIT",
+        "STOP", "LOSS", "ACTIVE", "NSE", "BSE", "BY", "ALL", "NEW"}
+
 
 def main():
     captured = []
@@ -24,7 +27,7 @@ def main():
             try:
                 page.goto(url, wait_until="networkidle", timeout=45000)
                 page.wait_for_timeout(2500)
-                for label in ["Swing", "Swing (≤2wk)", "All"]:
+                for label in ["Swing", "Swing (≤2wk)"]:
                     btn = page.get_by_text(label, exact=False).first
                     if btn.count():
                         btn.click(timeout=2000)
@@ -60,23 +63,26 @@ def main():
                             st = "active"
                         sl_val = obj.get("sl") or obj.get("stop_loss")
                         cmp_val = obj.get("cmp") or obj.get("ltp")
-                        trades.append({
-                            "id": f"sta-{len(trades) + 1}",
-                            "symbol": str(sym).upper().replace(".NS", ""),
-                            "name": str(obj.get("company_name") or obj.get("name") or sym),
-                            "advisor": str(obj.get("advisor_name") or obj.get("advisor") or "SEBI Advisor"),
-                            "source": str(obj.get("source") or obj.get("channel") or "StockTipsArena"),
-                            "side": "SELL" if "sell" in str(obj.get("side") or obj.get("action") or "").lower() else "BUY",
-                            "horizon": horizon or "Swing (≤2wk)",
-                            "date": str(obj.get("date") or obj.get("created_at") or ""),
-                            "entry": float(entry) if entry else None,
-                            "sl": float(sl_val) if sl_val else None,
-                            "target": float(target) if target else None,
-                            "cmp": float(cmp_val) if cmp_val else None,
-                            "status": st,
-                            "note": str(obj.get("note") or obj.get("rationale") or ""),
-                            "link": f"https://stocktipsarena.com/tip/{obj['slug']}" if obj.get("slug") else "https://stocktipsarena.com/discover"
-                        })
+                        try:
+                            trades.append({
+                                "id": f"sta-{len(trades) + 1}",
+                                "symbol": str(sym).upper().replace(".NS", ""),
+                                "name": str(obj.get("company_name") or obj.get("name") or sym),
+                                "advisor": str(obj.get("advisor_name") or obj.get("advisor") or "SEBI Advisor"),
+                                "source": str(obj.get("source") or obj.get("channel") or "StockTipsArena"),
+                                "side": "SELL" if "sell" in str(obj.get("side") or obj.get("action") or "").lower() else "BUY",
+                                "horizon": horizon or "Swing (≤2wk)",
+                                "date": str(obj.get("date") or obj.get("created_at") or ""),
+                                "entry": float(entry) if entry else None,
+                                "sl": float(sl_val) if sl_val else None,
+                                "target": float(target) if target else None,
+                                "cmp": float(cmp_val) if cmp_val else None,
+                                "status": st,
+                                "note": str(obj.get("note") or obj.get("rationale") or ""),
+                                "link": f"https://stocktipsarena.com/tip/{obj['slug']}" if obj.get("slug") else "https://stocktipsarena.com/discover"
+                            })
+                        except Exception:
+                            pass
                 for v in obj.values():
                     walk(v)
 
@@ -85,7 +91,10 @@ def main():
         if len(trades) < 10:
             cards = page.locator("a[href*='/tip/'], article, [class*='card']").all()
             for c in cards:
-                txt = c.inner_text().strip()
+                try:
+                    txt = c.inner_text().strip()
+                except Exception:
+                    continue
                 if "swing" not in txt.lower():
                     continue
                 href = c.get_attribute("href") or ""
@@ -93,17 +102,20 @@ def main():
                     sub_a = c.locator("a[href*='/tip/']").first
                     if sub_a.count():
                         href = sub_a.get_attribute("href") or ""
-                m_sym = re.search(r"\b([A-Z]{2,15})\b", txt)
+                sym = next((w for w in re.findall(r"\b[A-Z]{2,15}\b", txt) if w not in SKIP), None)
                 m_ent = re.search(r"(?:Entry|Buy|Sell|CMP)[^\d]{0,12}₹?\s*([0-9,]+(?:\.[0-9]+)?)", txt, re.I)
                 m_tgt = re.search(r"Target[^\d]{0,12}₹?\s*([0-9,]+(?:\.[0-9]+)?)", txt, re.I)
                 m_sl = re.search(r"(?:SL|Stop\s*Loss)[^\d]{0,12}₹?\s*([0-9,]+(?:\.[0-9]+)?)", txt, re.I)
-                if m_sym and (m_ent or m_tgt):
-                    sym = m_sym.group(1)
+                if sym and (m_ent or m_tgt):
                     key = f"{sym}-{href or txt[:40]}"
                     if key not in seen:
                         seen.add(key)
                         lines = [l.strip() for l in txt.splitlines() if l.strip()]
-                        date_match = next((re.search(r"\d{1,2}\s+[A-Za-z]{3,9}\s+202\d", l) for l in lines if re.search(r"\d{1,2}\s+[A-Za-z]{3,9}\s+202\d", l)), None)
+                        date_match = None
+                        for l in lines:
+                            date_match = re.search(r"\d{1,2}\s+[A-Za-z]{3,9}\s+202\d", l)
+                            if date_match:
+                                break
                         if re.search(r"target\s*hit", txt, re.I):
                             st = "target"
                         elif re.search(r"stop\s*loss|closed\s*at", txt, re.I):
@@ -138,7 +150,6 @@ def main():
             "trades": trades
         }, f, indent=2)
 
+
 if __name__ == "__main__":
     main()
-
-```
