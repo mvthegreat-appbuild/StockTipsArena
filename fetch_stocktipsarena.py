@@ -10,13 +10,11 @@ from playwright.sync_api import sync_playwright
 
 OUT_FILE = "stocktipsarena_swing.json"
 MAX_AGE_DAYS = 21
-MAX_ARTICLES = 45
+MAX_ARTICLES = 60
 
 FEEDS = [
     "https://www.business-standard.com/rss/markets-106.rss",
     "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms",
-    "https://www.moneycontrol.com/rss/marketreports.xml",
-    "https://www.moneycontrol.com/rss/buzzingstocks.xml",
     "https://www.livemint.com/rss/markets",
 ]
 
@@ -28,6 +26,7 @@ GOOGLE_QUERIES = [
     "Angel One stocks to buy target stop loss",
     "HDFC Securities stocks to buy target stop loss",
     "ICICI Securities stocks to buy target stop loss",
+    "Sharekhan stocks to buy target stop loss",
     "brokerage stocks to buy today target stop loss",
 ]
 
@@ -38,25 +37,96 @@ FIRMS = [
     "SBI Securities", "Prabhudas Lilladher", "Emkay", "Nuvama", "JM Financial",
     "Mirae Asset", "Tradebulls", "Bonanza", "LKP Securities", "Systematix",
     "Morgan Stanley", "Jefferies", "Goldman Sachs", "Nomura", "CLSA",
-    "Ventura", "Arihant", "Centrum", "Elara",
+    "Ventura", "Arihant", "Centrum", "Elara", "Lakshmishree",
 ]
 
 KEYWORDS = ["stocks to buy", "stock to buy", "buy", "target", "recommend",
             "stop-loss", "stop loss", "picks", "trade ideas", "trading ideas"]
 
-CALL_RE = re.compile(
-    r"(Buy|Sell)\s+([A-Za-z0-9&.\- ]{2,40}?)\s*[,|]?\s*(?:at\s+)?CMP\s*[:\-]?\s*(?:Rs\.?|₹)?\s*([0-9,]+(?:\.\d+)?)"
-    r"\s*[,|]?\s*Stop[\s\-]*loss\s*[:\-]?\s*(?:Rs\.?|₹)?\s*([0-9,]+(?:\.\d+)?)"
-    r"\s*[,|]?\s*(?:Share price\s*)?Target(?:\s*price)?\s*[:\-]?\s*(?:Rs\.?|₹)?\s*([0-9,]+(?:\.\d+)?)",
-    re.I,
-)
-
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+
+NUM = r"([0-9][0-9,]*(?:\.\d+)?)"
+BS_RE = re.compile(r"\b(Buy|Sell)\b", re.I)
+TGT_RE = re.compile(r"target(?:\s*price)?(?:\s*of)?[^0-9₹]{0,20}?(?:₹|Rs\.?)?\s*" + NUM, re.I)
+SL_RE = re.compile(r"stop[\s\-]*loss(?:\s*(?:of|at|below))?[^0-9₹]{0,20}?(?:₹|Rs\.?)?\s*" + NUM, re.I)
+ENT_RE = re.compile(
+    r"\b(?:CMP|entry|buy(?:ing)?|sell|at|above|near|around)\b\s*[:\-]?\s*"
+    r"(?:at|above|near|around)?\s*(?:₹|Rs\.?)\s*" + NUM, re.I)
+
+BAD = {"entry", "target", "stop", "cmp", "at", "above", "near", "around", "the",
+       "this", "these", "that", "stock", "stocks", "shares", "share", "now",
+       "today", "on", "in", "with", "and", "for", "a", "an", "if", "as", "it",
+       "its", "buy", "sell", "stoploss", "price", "support", "levels", "only",
+       "from", "to", "of", "or", "but", "also", "can", "one"}
 
 
 def num(s):
     return float(s.replace(",", ""))
+
+
+def name_after(body, pos):
+    seg = body[pos:pos + 90]
+    seg = re.sub(r"^[ \t:,\-–]+", "", seg)
+    if not seg or seg[0] in "\r\n":
+        return None
+    seg = re.sub(r"^(?:the\s+)?(?:shares?|stocks?)\s+of\s+", "", seg, flags=re.I)
+    mm = re.match(
+        r"([A-Z][A-Za-z0-9&.\-]*(?:\s+[A-Za-z0-9&.\-()]+){0,4}?)\s*"
+        r"(?=[,:|(@\n]|\bat\b|\bAt\b|\babove\b|\bnear\b|\baround\b|\bCMP\b|₹|Rs)", seg)
+    if not mm:
+        return None
+    nm = mm.group(1).strip()
+    if nm.split()[0].lower() in BAD:
+        return None
+    return nm
+
+
+def name_before(body, pos):
+    seg = body[max(0, pos - 80):pos]
+    lines = [l for l in seg.split("\n") if l.strip()]
+    if not lines:
+        return None
+    line = lines[-1]
+    line = re.sub(r"^\s*(?:\d+[\.\)]|[-•*])\s*", "", line)
+    line = re.sub(r"[\s\-–—:|,(]+$", "", line).strip()
+    if not line or len(line) > 45 or len(line.split()) > 6:
+        return None
+    if not (line[0].isupper() or line[0].isdigit()):
+        return None
+    if line.split()[0].lower() in BAD:
+        return None
+    return line
+
+
+def extract_calls(body):
+    out = []
+    ms = list(BS_RE.finditer(body))
+    for i, m in enumerate(ms):
+        end = ms[i + 1].start() if i + 1 < len(ms) else len(body)
+        end = min(end, m.end() + 320)
+        win = body[m.end():end]
+        t = TGT_RE.search(win)
+        s = SL_RE.search(win)
+        if not t or not s:
+            continue
+        entry = None
+        for em in ENT_RE.finditer(win):
+            if t.start() <= em.start() < t.end() or s.start() <= em.start() < s.end():
+                continue
+            entry = num(em.group(1))
+            break
+        if entry is None or entry <= 0:
+            continue
+        tgt, sl = num(t.group(1)), num(s.group(1))
+        if abs(tgt - entry) / entry > 0.5 or abs(sl - entry) / entry > 0.5:
+            continue
+        name = name_after(body, m.end()) or name_before(body, m.start())
+        if not name:
+            continue
+        side = "SELL" if m.group(1).lower() == "sell" else "BUY"
+        out.append((side, name, entry, sl, tgt))
+    return out
 
 
 def find_firm(title, body):
@@ -132,24 +202,21 @@ def main():
         cands.sort(key=lambda x: (x[0], x[1]), reverse=True)
         cands = cands[:MAX_ARTICLES]
         print("Articles to read:", len(cands))
-        for c in cands[:5]:
-            print("  e.g.", c[3][:100])
 
         shown = 0
+        denied = 0
         for score, d, link, title in cands:
             try:
                 page.goto(link, wait_until="domcontentloaded", timeout=45000)
                 page.wait_for_timeout(4000 if "news.google.com" in link else 1500)
                 body = page.inner_text("body")
                 host = urlparse(page.url).netloc.replace("www.", "")
+                if "access denied" in body[:200].lower():
+                    denied += 1
+                    continue
                 firm = find_firm(title, body)
                 found = 0
-                for m in CALL_RE.finditer(body):
-                    side = "SELL" if m.group(1).lower() == "sell" else "BUY"
-                    name = re.sub(r"\s+", " ", m.group(2)).strip(" ,|-")
-                    if len(name) < 2:
-                        continue
-                    entry, sl, tgt = num(m.group(3)), num(m.group(4)), num(m.group(5))
+                for side, name, entry, sl, tgt in extract_calls(body):
                     key = (firm, name.upper(), d.isoformat(), tgt)
                     if key in seen:
                         continue
@@ -173,13 +240,16 @@ def main():
                         "note": "",
                         "link": page.url,
                     })
-                if found == 0 and shown < 3:
+                if found == 0 and shown < 4:
                     shown += 1
-                    print("NO CALLS in:", host, "|", title[:80])
-                    print("   text start:", re.sub(r"\s+", " ", body)[:250])
+                    flat = re.sub(r"\s+", " ", body)
+                    i = flat.lower().find("target")
+                    print("NO CALLS in:", host, "|", title[:70])
+                    print("   around target:", flat[max(0, i - 150):i + 200] if i >= 0 else "(word target not found)")
             except Exception as e:
                 print("Article problem:", link[:80], str(e)[:100])
 
+        print("Blocked pages (access denied):", denied)
         browser.close()
 
     trades.sort(key=lambda x: x["sortdate"], reverse=True)
