@@ -1,113 +1,483 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080f1e">
+<title>StockTipsArena · Swing Picks</title>
 <style>
-.broker-tabs {
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding:10px 0 14px;
-  margin-bottom:8px;
-  white-space:nowrap;
-  scrollbar-width:thin;
-  -webkit-overflow-scrolling:touch;
-}
-.broker-tabs .fbtn {
-  flex:0 0 auto;
-  min-width:max-content;
-  padding:10px 14px;
-}
-.broker-tabs .fbtn.on {
-  background:#124c3a;
-  border-color:#35dda2;
-  color:#65e8b4;
-}
+:root{--bg:#080f1e;--panel:#142139;--panel2:#0e192c;--line:#293b56;--text:#edf4ff;--muted:#91a2bb;--green:#35dda2;--red:#ff7186;--amber:#ffd17d}
+*{box-sizing:border-box}
+body{margin:0;padding-top:env(safe-area-inset-top,0px);background:radial-gradient(ellipse at 80% -10%,#173b60,transparent 45%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:36px}
+header{padding:22px 17px;background:linear-gradient(135deg,#142b48,#101a2d);border-bottom:1px solid var(--line)}
+h1{font-size:20px;margin:0}.sub{font-size:10px;color:#a8bad2;letter-spacing:1px;margin-top:4px}#upd{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6}#upd b{color:#edf4ff}
+main{max-width:850px;margin:auto;padding:14px}
+input,textarea{width:100%;background:var(--panel2);color:#fff;border:1px solid var(--line);border-radius:11px;padding:12px;font-size:14px;font-family:inherit;-webkit-appearance:none;appearance:none}
+input{margin:2px 0 10px}
+textarea{min-height:140px;margin:8px 0 10px;resize:vertical;font-size:12px;line-height:1.5}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:10px}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.fbtn{background:#0e192c;border:1px solid var(--line);color:var(--muted);border-radius:9px;padding:7px 11px;font-size:11px;font-weight:700;cursor:pointer}
+.fbtn.on{background:#124c3a;border-color:#238c70;color:#65e8b4}
+.broker-heading{font-size:11px;font-weight:800;color:#a8bad2;letter-spacing:1px;margin:16px 0 8px}
+.broker-tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 1px 10px;margin-bottom:8px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.broker-tabs .fbtn{flex:0 0 auto;white-space:nowrap}
+.broker-tabs .fbtn.on{background:#173d61;border-color:#3986c5;color:#9cdbff}
+.card{background:linear-gradient(150deg,#172740,#101a2b);border:1px solid #293d59;border-radius:16px;margin:10px 0;padding:14px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.name{font-size:18px;font-weight:800;letter-spacing:.2px;overflow-wrap:anywhere}
+.meta{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.45}
+.badges{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.tag{display:inline-block;padding:5px 10px;border-radius:7px;font-size:10px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
+.BUY{background:#124c3a;color:#65e8b4}.SELL{background:#542637;color:#ff91a1}
+.st-target{background:#124c3a;color:#35dda2;border:1px solid #238c70}
+.st-sl{background:#542637;color:#ff7186;border:1px solid #96384b}
+.st-active{background:#2d2616;color:#ffd17d;border:1px solid #6b5626}
+.st-waiting,.st-unknown{background:#16243d;color:#91a2bb;border:1px solid #293b56}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.box{background:#0c1729;border:1px solid #263750;padding:10px 9px;border-radius:11px;min-width:0;overflow:hidden}
+.box label{display:block;font-size:10px;color:var(--muted);margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.box strong{display:block;font-size:16px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sl strong{color:var(--red)}
+.cmp-box{border-color:#2a486e}.cmp-box strong{color:#70d3ff}
+.tgt-box strong{color:var(--green)}
+.metrics{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:11px;color:var(--muted);line-height:1.5}.metrics b{color:#fff}
+.note{margin-top:9px;font-size:11px;color:var(--muted);line-height:1.45}
+.importer{background:var(--panel);border:1px solid #2c4161;border-radius:16px;padding:14px;margin:12px 0;display:none}
+.importer.open{display:block}
+.importer h2{margin:0 0 6px;font-size:15px}
+.importer p{margin:0 0 8px;font-size:11px;color:var(--muted);line-height:1.45}
+.imp-actions{display:flex;gap:8px;flex-wrap:wrap}
+.msg{margin-top:8px;font-size:11px;color:var(--green);min-height:16px}
+a{color:#70d3ff;text-decoration:none;font-size:11px}
+.empty{padding:25px;text-align:center;color:var(--muted);background:var(--panel);border-radius:14px}
+.btn{border:1px solid #168565;background:#12624d;color:#8af4c9;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:700;cursor:pointer}
+.btn-sec{border:1px solid var(--line);background:#0e192c;color:#c9d6ea;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:700;cursor:pointer}
+.foot{max-width:850px;margin:auto;padding:10px 14px 0;color:#71839c;font-size:10px;line-height:1.6}
+@media(max-width:420px){main{padding:11px}.row{gap:5px}.box{padding:9px 6px}.box strong{font-size:14px}.box label{font-size:9px}.name{font-size:16px}}
 </style>
+</head>
+<body>
+<header>
+ <h1>StockTipsArena · Swing Picks</h1>
+ <div class="sub">SWING (≤2WK) ANALYST CALLS · DIRECT BROWSER VIEW &amp; IMPORT</div>
+ <div id="upd">Loading...</div>
+</header>
+<main>
+ <input id="q" type="search" placeholder="Search stock, company or advisor..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+
+ <div class="toolbar">
+  <div class="filters" id="filters">
+   <button class="fbtn on" data-f="all" type="button">All Calls</button>
+   <button class="fbtn" data-f="active" type="button">Active</button>
+   <button class="fbtn" data-f="target" type="button">Target Hit</button>
+   <button class="fbtn" data-f="sl" type="button">Stop Loss Hit</button>
+  </div>
+  <button class="btn" id="toggleImp" type="button">+ Paste / Import Calls</button>
+ </div>
+
+ <section class="importer" id="importer">
+  <h2>Paste Swing Calls or JSON</h2>
+  <p>Paste copied text or a JSON array/object. For broker filtering, include a broker field in JSON, for example: <code>"broker":"Motilal Oswal"</code>. Imported calls save locally in your browser.</p>
+  <textarea id="rawInput" placeholder='[{"symbol":"ABC","entry":100,"target":110,"sl":95,"broker":"Motilal Oswal","advisor":"Analyst Name"}]'></textarea>
+  <div class="imp-actions">
+   <button class="btn" id="applyImp" type="button">Load Calls</button>
+   <button class="btn-sec" id="resetImp" type="button">Reset Default Sample</button>
+   <button class="btn-sec" id="clearImp" type="button">Clear All</button>
+  </div>
+  <div class="msg" id="impMsg"></div>
+ </section>
+
+ <div class="broker-heading">FILTER BY BROKERAGE</div>
+ <div class="broker-tabs" id="brokerTabs">
+  <button class="fbtn on" data-broker="all" type="button">All Brokers</button>
+  <button class="fbtn" data-broker="Motilal Oswal" type="button">Motilal Oswal</button>
+  <button class="fbtn" data-broker="ICICI Securities" type="button">ICICI Securities</button>
+  <button class="fbtn" data-broker="HDFC Securities" type="button">HDFC Securities</button>
+  <button class="fbtn" data-broker="Axis Securities" type="button">Axis Securities</button>
+  <button class="fbtn" data-broker="Kotak Securities" type="button">Kotak Securities</button>
+  <button class="fbtn" data-broker="Sharekhan" type="button">Sharekhan</button>
+  <button class="fbtn" data-broker="Nuvama" type="button">Nuvama</button>
+  <button class="fbtn" data-broker="JM Financial" type="button">JM Financial</button>
+  <button class="fbtn" data-broker="Anand Rathi" type="button">Anand Rathi</button>
+  <button class="fbtn" data-broker="Prabhudas Lilladher" type="button">Prabhudas Lilladher</button>
+  <button class="fbtn" data-broker="SBI Securities" type="button">SBI Securities</button>
+  <button class="fbtn" data-broker="Geojit" type="button">Geojit</button>
+ </div>
+
+ <div id="list"><div class="empty">Loading...</div></div>
+ <button class="btn" id="ref" type="button">↻ Reload Saved</button>
+</main>
+
+<div class="foot">
+ <p>* Displays saved/imported swing calls locally in your browser. Broker tabs only show calls with identifiable brokerage information. Verify original advisor disclosures and live market prices before acting. Not investment advice.</p>
+</div>
 
 <script>
-(function () {
-  const tabs = document.getElementById("brokerTabs");
-  if (!tabs || typeof render !== "function") return;
+const STORAGE_KEY="sta_swing_local_v1";
 
-  const originalRender = render;
-  let selectedBroker = "all";
+const BROKERS=[
+ "Motilal Oswal",
+ "ICICI Securities",
+ "HDFC Securities",
+ "Axis Securities",
+ "Kotak Securities",
+ "Sharekhan",
+ "Nuvama",
+ "JM Financial",
+ "Anand Rathi",
+ "Prabhudas Lilladher",
+ "SBI Securities",
+ "Geojit"
+];
 
-  const aliases = {
-    "Motilal Oswal": ["motilal oswal", "motilal"],
-    "ICICI Securities": ["icici securities", "icici sec"],
-    "HDFC Securities": ["hdfc securities", "hdfc sec"],
-    "Axis Securities": ["axis securities", "axis sec"],
-    "Kotak Securities": ["kotak securities", "kotak"],
-    "Sharekhan": ["sharekhan"],
-    "Nuvama": ["nuvama"],
-    "JM Financial": ["jm financial"],
-    "Anand Rathi": ["anand rathi"],
-    "Prabhudas Lilladher": ["prabhudas lilladher", "prabhudas"],
-    "SBI Securities": ["sbi securities", "sbi sec"],
-    "Geojit": ["geojit"]
-  };
+const BROKER_ALIASES={
+ "Motilal Oswal":["motilaloswal","motilaloswalfinancialservices","mosl"],
+ "ICICI Securities":["icicisecurities","icicidirect"],
+ "HDFC Securities":["hdfcsecurities","hdfcsec"],
+ "Axis Securities":["axissecurities","axisdirect"],
+ "Kotak Securities":["kotaksecurities","kotaksec","kotakneo"],
+ "Sharekhan":["sharekhan"],
+ "Nuvama":["nuvama","nuvamawealth"],
+ "JM Financial":["jmfinancial","jmfinancialservices"],
+ "Anand Rathi":["anandrathi","anandrathishares"],
+ "Prabhudas Lilladher":["prabhudaslilladher","plindia","prabhudas"],
+ "SBI Securities":["sbisecurities","sbicap securities","sbicap"],
+ "Geojit":["geojit","geojitfinancial"]
+};
 
-  function matchesBroker(trade, broker) {
-    if (broker === "all") return true;
+const SAMPLE_TRADES=[
+ {id:"sta-1",symbol:"ENRIN",name:"Siemens Energy India",advisor:"Rakesh Bansal",source:"StockTipsArena",side:"BUY",horizon:"Swing (≤2wk)",date:"29 Sept 2026",entry:3211.4,sl:3150,target:3430,cmp:null,status:"active",note:"Sample call — use + Paste / Import Calls to paste your own list.",link:"https://stocktipsarena.com/discover"},
+ {id:"sta-2",symbol:"MARKSANS",name:"Marksans Pharma",advisor:"Rajesh Satpute",source:"StockTipsArena",side:"BUY",horizon:"Swing (≤2wk)",date:"29 Sept 2026",entry:341.4,sl:330,target:360,cmp:null,status:"sl",note:"",link:"https://stocktipsarena.com/discover"},
+ {id:"sta-3",symbol:"INDGN",name:"Indegene",advisor:"Devendra Mehta",source:"StockTipsArena",side:"BUY",horizon:"Swing (≤2wk)",date:"28 Aug 2026",entry:580,sl:null,target:620,cmp:null,status:"active",note:"",link:"https://stocktipsarena.com/discover"},
+ {id:"sta-4",symbol:"RML",name:"Rane (Madras)",advisor:"Sandeep Jain",source:"StockTipsArena",side:"BUY",horizon:"Swing (≤2wk)",date:"24 Aug 2026",entry:1136.2,sl:null,target:1250,cmp:null,status:"target",note:"",link:"https://stocktipsarena.com/discover"},
+ {id:"sta-5",symbol:"PARAS",name:"Paras Defence",advisor:"Chandan Taparia",source:"StockTipsArena",side:"BUY",horizon:"Swing (≤2wk)",date:"14 Aug 2026",entry:1345,sl:null,target:1400,cmp:null,status:"target",note:"",link:"https://stocktipsarena.com/discover"}
+];
 
-    const text = [
-      trade.advisor,
-      trade.source,
-      trade.broker,
-      trade.firm,
-      trade.name
-    ].join(" ").toLowerCase();
+let trades=[],query="",filter="all",selectedBroker="all",updatedLabel="";
 
-    return aliases[broker].some(alias =>
-      text.includes(alias)
-    );
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const cash=x=>x!=null&&Number.isFinite(Number(x))?"₹"+Number(x).toLocaleString("en-IN",{maximumFractionDigits:2}):"—";
+const pct=x=>(x>0?"+":x<0?"-":"")+Math.abs(x).toFixed(2)+"%";
+const norm=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"");
+
+function identifyBroker(t){
+ // Use explicit brokerage fields. An individual advisor's name is not
+ // treated as a brokerage firm.
+ const fields=[
+  t.broker,
+  t.broker_name,
+  t.brokerage,
+  t.firm,
+  t.firm_name,
+  t.source
+ ].filter(Boolean).map(String);
+
+ for(const broker of BROKERS){
+  const aliases=BROKER_ALIASES[broker]||[norm(broker)];
+  for(const field of fields){
+   const value=norm(field);
+   if(aliases.some(alias=>value.includes(norm(alias))))return broker;
   }
+ }
+ return "";
+}
 
-  function updateCounts() {
-    const all = trades || [];
+function stLabel(s){
+ if(s==="target")return "TARGET HIT";
+ if(s==="sl")return "STOP LOSS HIT";
+ if(s==="active")return "ACTIVE";
+ return "TRACKING";
+}
 
-    tabs.querySelectorAll("[data-broker]").forEach(button => {
-      const broker = button.dataset.broker;
-      const count = all.filter(t =>
-        matchesBroker(t, broker)
-      ).length;
+function card(t){
+ const e=Number(t.entry),sl=t.sl!=null?Number(t.sl):null,tgt=t.target!=null?Number(t.target):null;
+ const cmp=t.cmp!=null?Number(t.cmp):null,sell=t.side==="SELL";
+ let status=t.status||"active";
 
-      if (!button.dataset.originalLabel) {
-        button.dataset.originalLabel = button.textContent.trim();
-      }
+ if(cmp!=null&&Number.isFinite(cmp)){
+  if(sl!=null&&(sell?cmp>=sl:cmp<=sl))status="sl";
+  else if(tgt!=null&&(sell?cmp<=tgt:cmp>=tgt))status="target";
+ }
 
-      button.textContent =
-        button.dataset.originalLabel + " (" + count + ")";
-    });
+ const risk=(sl!=null&&e)?Math.abs(e-sl)/e*100:null;
+ const upside=(tgt!=null&&e)?Math.abs(tgt-e)/e*100:null;
+ const rr=(risk&&upside)?(upside/risk):null;
+ const move=(cmp!=null&&e)?((sell?(e-cmp):(cmp-e))/e)*100:null;
+ const moveCol=move==null?"var(--muted)":(move>=0?"var(--green)":"var(--red)");
+ const broker=identifyBroker(t);
+
+ const sub=[
+  t.name&&t.symbol&&t.name!==t.symbol?t.name:"",
+  t.advisor?"By "+t.advisor:"",
+  broker?"Broker: "+broker:"",
+  t.date,
+  t.horizon,
+  t.source&& !broker?"via "+t.source:""
+ ].filter(Boolean);
+
+ return `<article class="card">
+  <div class="top">
+   <div>
+    <div class="name">${esc(t.symbol||t.name)}</div>
+    <div class="meta">${esc(sub.join(" · "))}</div>
+   </div>
+   <div class="badges">
+    <span class="tag st-${esc(status)}">${esc(stLabel(status))}</span>
+    <span class="tag ${esc(t.side)}">${esc(t.side)}</span>
+   </div>
+  </div>
+  <div class="row">
+   <div class="box"><label>${sell?"Entry · below":"Entry · above"}</label><strong>${cash(e)}</strong></div>
+   <div class="box cmp-box"><label>${cmp!=null?"CMP / Exit":"Target Price"}</label><strong>${cmp!=null?cash(cmp):cash(tgt)}</strong></div>
+   <div class="box ${sl!=null?"sl":"tgt-box"}"><label>${sl!=null?"Stop Loss":"Target"}</label><strong>${sl!=null?cash(sl):cash(tgt)}</strong></div>
+  </div>
+  <div class="metrics">
+   ${cmp!=null&&tgt!=null?`<span>Target <b style="color:var(--green)">${cash(tgt)}</b></span>`:""}
+   <span>Move <b style="color:${moveCol}">${move==null?"—":pct(move)}</b></span>
+   ${risk!=null?`<span>Risk <b style="color:var(--red)">${risk.toFixed(2)}%</b></span>`:""}
+   ${upside!=null?`<span>Upside <b style="color:var(--green)">${upside.toFixed(2)}%</b></span>`:""}
+   ${rr!=null?`<span>R:R <b>1 : ${rr.toFixed(2)}</b></span>`:""}
+  </div>
+  ${t.note?`<div class="note">${esc(t.note)}</div>`:""}
+  ${t.link?`<div style="margin-top:9px"><a href="${esc(t.link)}" target="_blank" rel="noopener">View source ↗</a></div>`:""}
+ </article>`;
+}
+
+function updateBrokerButtons(){
+ document.querySelectorAll("#brokerTabs [data-broker]").forEach(button=>{
+  button.classList.toggle("on",button.dataset.broker===selectedBroker);
+ });
+}
+
+function updateFilterButtons(){
+ document.querySelectorAll("#filters [data-f]").forEach(button=>{
+  button.classList.toggle("on",button.dataset.f===filter);
+ });
+}
+
+function updateBrokerCounts(){
+ const counts={all:trades.length};
+ BROKERS.forEach(b=>counts[b]=trades.filter(t=>identifyBroker(t)===b).length);
+
+ document.querySelectorAll("#brokerTabs [data-broker]").forEach(button=>{
+  const key=button.dataset.broker;
+  const label=key==="all"?"All Brokers":key;
+  button.textContent=label+" ("+(counts[key]||0)+")";
+ });
+}
+
+function render(){
+ const q=norm(query);
+
+ const R=trades.filter(t=>{
+  if(filter!=="all"&&t.status!==filter)return false;
+
+  if(selectedBroker!=="all"&&identifyBroker(t)!==selectedBroker)return false;
+
+  if(!q)return true;
+
+  const searchable=[
+   t.symbol,t.name,t.advisor,t.source,
+   t.broker,t.broker_name,t.brokerage,t.firm,t.firm_name
+  ].filter(Boolean).join(" ");
+
+  return norm(searchable).includes(q);
+ });
+
+ document.getElementById("list").innerHTML=R.length
+  ?R.map(card).join("")
+  :'<div class="empty">No matching swing calls found for this filter.</div>';
+
+ const brokerLabel=selectedBroker==="all"?"All Brokers":selectedBroker;
+
+ document.getElementById("upd").innerHTML=
+  "Showing <b>"+R.length+" of "+trades.length+
+  "</b> swing calls · Broker: <b>"+esc(brokerLabel)+
+  "</b> · Updated: <b>"+esc(updatedLabel||"Local")+"</b>";
+
+ updateBrokerCounts();
+ updateBrokerButtons();
+ updateFilterButtons();
+}
+
+function normalizeImportedItem(item,i){
+ const broker=String(
+  item.broker||
+  item.broker_name||
+  item.brokerage||
+  item.firm||
+  item.firm_name||
+  ""
+ );
+
+ return {
+  id:item.id||("imp-"+Date.now()+"-"+i),
+  symbol:String(item.symbol||item.ticker||"STOCK").toUpperCase(),
+  name:String(item.name||item.company_name||item.symbol||"Stock"),
+  advisor:String(item.advisor||item.advisor_name||""),
+  broker,
+  broker_name:String(item.broker_name||""),
+  brokerage:String(item.brokerage||""),
+  firm:String(item.firm||""),
+  source:String(item.source||"StockTipsArena"),
+  side:String(item.side||"").toUpperCase()==="SELL"?"SELL":"BUY",
+  horizon:String(item.horizon||"Swing (≤2wk)"),
+  date:String(item.date||""),
+  entry:item.entry!=null?Number(item.entry):0,
+  sl:item.sl!=null?Number(item.sl):null,
+  target:item.target!=null?Number(item.target):null,
+  cmp:item.cmp!=null?Number(item.cmp):null,
+  status:item.status||"active",
+  note:String(item.note||""),
+  link:String(item.link||"")
+ };
+}
+
+function parseRawText(text){
+ const trimmed=text.trim();
+ if(!trimmed)return [];
+
+ try{
+  const parsed=JSON.parse(trimmed);
+  const arr=Array.isArray(parsed)?parsed:(Array.isArray(parsed.trades)?parsed.trades:[]);
+  if(arr.length)return arr.map(normalizeImportedItem);
+ }catch(e){}
+
+ const lines=trimmed.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+ const out=[];
+
+ for(let i=0;i<lines.length;i++){
+  const line=lines[i];
+  const symMatch=line.match(/\b([A-Z]{2,15})\b/);
+  const entMatch=line.match(/(?:entry|buy|sell|cmp|@)\s*[:\-]?\s*₹?\s*([0-9,]+(?:\.[0-9]+)?)/i);
+  const tgtMatch=line.match(/(?:target|tgt|t1)\s*[:\-]?\s*₹?\s*([0-9,]+(?:\.[0-9]+)?)/i);
+  const slMatch=line.match(/(?:sl|stop\s*loss)\s*[:\-]?\s*₹?\s*([0-9,]+(?:\.[0-9]+)?)/i);
+  const advMatch=line.match(/\bby\s+([A-Za-z .'-]{2,40}?)(?=\s+(?:broker|firm)\s*:|$)/i);
+  const brokerMatch=line.match(/\b(?:broker|brokerage|firm)\s*:\s*([^,;|]+)/i);
+
+  if(symMatch&&(entMatch||tgtMatch)){
+   const sym=symMatch[1].toUpperCase();
+   const entry=entMatch?Number(entMatch[1].replace(/,/g,"")):0;
+   const target=tgtMatch?Number(tgtMatch[1].replace(/,/g,"")):null;
+   const sl=slMatch?Number(slMatch[1].replace(/,/g,"")):null;
+
+   let status="active";
+   if(/target\s*hit/i.test(line))status="target";
+   else if(/stop\s*loss|sl\s*hit/i.test(line))status="sl";
+
+   out.push({
+    id:"imp-"+(out.length+1)+"-"+Date.now(),
+    symbol:sym,
+    name:sym,
+    advisor:advMatch?advMatch[1].trim():"",
+    broker:brokerMatch?brokerMatch[1].trim():"",
+    source:"StockTipsArena",
+    side:/\bsell\b/i.test(line)?"SELL":"BUY",
+    horizon:"Swing (≤2wk)",
+    date:new Date().toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}),
+    entry,
+    sl:Number.isFinite(sl)?sl:null,
+    target:Number.isFinite(target)?target:null,
+    cmp:null,
+    status,
+    note:"",
+    link:"https://stocktipsarena.com/discover"
+   });
   }
+ }
+ return out;
+}
 
-  render = function () {
-    const allTrades = trades;
-    trades = allTrades.filter(t =>
-      matchesBroker(t, selectedBroker)
-    );
+function saveTrades(list,label){
+ trades=list;
+ updatedLabel=label||new Date().toLocaleString("en-IN");
 
-    try {
-      originalRender();
-    } finally {
-      trades = allTrades;
-    }
+ try{
+  localStorage.setItem(STORAGE_KEY,JSON.stringify({trades,updatedLabel}));
+ }catch(e){}
 
-    updateCounts();
-  };
+ render();
+}
 
-  tabs.addEventListener("click", function (event) {
-    const button = event.target.closest("[data-broker]");
-    if (!button) return;
-
-    selectedBroker = button.dataset.broker;
-
-    tabs.querySelectorAll("[data-broker]").forEach(tab => {
-      tab.classList.toggle("on", tab === button);
-    });
-
+function loadSaved(){
+ try{
+  const raw=localStorage.getItem(STORAGE_KEY);
+  if(raw){
+   const data=JSON.parse(raw);
+   if(Array.isArray(data.trades)){
+    trades=data.trades;
+    updatedLabel=data.updatedLabel||"Saved in browser";
     render();
-  });
+    return;
+   }
+  }
+ }catch(e){}
 
-  updateCounts();
+ trades=SAMPLE_TRADES.slice();
+ updatedLabel="Default sample";
+ render();
+}
+
+document.getElementById("toggleImp").addEventListener("click",()=>{
+ document.getElementById("importer").classList.toggle("open");
+});
+
+document.getElementById("applyImp").addEventListener("click",()=>{
+ const msg=document.getElementById("impMsg");
+ const parsed=parseRawText(document.getElementById("rawInput").value);
+
+ if(!parsed.length){
+  msg.style.color="var(--red)";
+  msg.textContent="Could not detect swing calls. Include a stock symbol and Entry or Target price, or paste valid JSON.";
+  return;
+ }
+
+ saveTrades(parsed,new Date().toLocaleString("en-IN"));
+ msg.style.color="var(--green)";
+ msg.textContent="Loaded and saved "+parsed.length+" swing call(s). Broker details are retained when supplied.";
+});
+
+document.getElementById("resetImp").addEventListener("click",()=>{
+ document.getElementById("rawInput").value="";
+ document.getElementById("impMsg").style.color="var(--green)";
+ document.getElementById("impMsg").textContent="Restored default sample calls.";
+ saveTrades(SAMPLE_TRADES.slice(),"Default sample");
+});
+
+document.getElementById("clearImp").addEventListener("click",()=>{
+ document.getElementById("rawInput").value="";
+ document.getElementById("impMsg").style.color="var(--amber)";
+ document.getElementById("impMsg").textContent="Cleared all calls.";
+ saveTrades([],new Date().toLocaleString("en-IN"));
+});
+
+const qi=document.getElementById("q");
+["input","keyup","change","search"].forEach(ev=>{
+ qi.addEventListener(ev,()=>{
+  query=qi.value;
   render();
-})();
+ });
+});
+
+document.getElementById("filters").addEventListener("click",e=>{
+ const b=e.target.closest("[data-f]");
+ if(!b)return;
+ filter=b.dataset.f;
+ render();
+});
+
+document.getElementById("brokerTabs").addEventListener("click",e=>{
+ const b=e.target.closest("[data-broker]");
+ if(!b)return;
+ selectedBroker=b.dataset.broker;
+ render();
+});
+
+document.getElementById("ref").addEventListener("click",loadSaved);
+
+loadSaved();
 </script>
+</body>
+</html>
