@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-23T09:14:51.813114+00:00",
-  "total": 24,
+  "updated": "2026-11-23T11:00:33.234525+00:00",
+  "total": 23,
   "trades": [
     {
       "id": "bp-16",
@@ -252,7 +252,7 @@
       "cmp": null,
       "status": "active",
       "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-axis-bank-bajaj-finance-hdfc-life-by-sumeet-bagadia-targets-stop-loss-stock-market-prediction-11795228228586.html"
+      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-axis-bank-bajaj-finance-hdfc-life-by-sumeet-bagadia-targets-stop-loss-stock-market-prediction/amp-11795228228586.html"
     },
     {
       "id": "bp-11",
@@ -270,7 +270,7 @@
       "cmp": null,
       "status": "active",
       "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-axis-bank-bajaj-finance-hdfc-life-by-sumeet-bagadia-targets-stop-loss-stock-market-prediction-11795228228586.html"
+      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-axis-bank-bajaj-finance-hdfc-life-by-sumeet-bagadia-targets-stop-loss-stock-market-prediction/amp-11795228228586.html"
     },
     {
       "id": "bp-12",
@@ -288,7 +288,7 @@
       "cmp": null,
       "status": "active",
       "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-axis-bank-bajaj-finance-hdfc-life-by-sumeet-bagadia-targets-stop-loss-stock-market-prediction-11795228228586.html"
+      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-axis-bank-bajaj-finance-hdfc-life-by-sumeet-bagadia-targets-stop-loss-stock-market-prediction/amp-11795228228586.html"
     },
     {
       "id": "bp-13",
@@ -361,24 +361,6 @@
       "status": "active",
       "note": "",
       "link": "https://www.businesstoday.in/markets/trending-stocks/story/urban-company-bpcl-sun-pharma-igl-among-top-picks-for-quick-gains-check-fresh-targets-568657-2026-11-20"
-    },
-    {
-      "id": "bp-24",
-      "symbol": "DEEPESH SARAWAGI HAS A",
-      "name": "Deepesh Sarawagi has a",
-      "advisor": "Choice Broking",
-      "source": "news9live.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "19 Nov 2026",
-      "sortdate": "2026-11-19",
-      "entry": 1131.0,
-      "sl": 1070.0,
-      "target": 1253.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.news9live.com/business/markets/brokerage-bullish-on-gail-tata-consumer-and-cipla-know-target-price-and-stop-loss-3025772"
     },
     {
       "id": "bp-7",
