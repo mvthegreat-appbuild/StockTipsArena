@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-23T05:08:30.986430+00:00",
-  "total": 23,
+  "updated": "2026-11-23T07:16:10.596119+00:00",
+  "total": 24,
   "trades": [
     {
       "id": "bp-16",
@@ -361,6 +361,24 @@
       "status": "active",
       "note": "",
       "link": "https://www.businesstoday.in/markets/trending-stocks/story/urban-company-bpcl-sun-pharma-igl-among-top-picks-for-quick-gains-check-fresh-targets-568657-2026-11-20"
+    },
+    {
+      "id": "bp-24",
+      "symbol": "DEEPESH SARAWAGI HAS A",
+      "name": "Deepesh Sarawagi has a",
+      "advisor": "Choice Broking",
+      "source": "news9live.com",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "19 Nov 2026",
+      "sortdate": "2026-11-19",
+      "entry": 1131.0,
+      "sl": 1070.0,
+      "target": 1253.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://www.news9live.com/business/markets/brokerage-bullish-on-gail-tata-consumer-and-cipla-know-target-price-and-stop-loss-3025772"
     },
     {
       "id": "bp-7",
