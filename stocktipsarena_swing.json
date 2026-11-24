@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-24T03:53:27.164054+00:00",
-  "total": 21,
+  "updated": "2026-11-24T04:59:40.933950+00:00",
+  "total": 20,
   "trades": [
     {
       "id": "bp-7",
@@ -361,24 +361,6 @@
       "status": "active",
       "note": "",
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
-    },
-    {
-      "id": "bp-21",
-      "symbol": "DEEPESH SARAWAGI HAS A",
-      "name": "Deepesh Sarawagi has a",
-      "advisor": "Choice Broking",
-      "source": "news9live.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "19 Nov 2026",
-      "sortdate": "2026-11-19",
-      "entry": 1131.0,
-      "sl": 1070.0,
-      "target": 1253.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.news9live.com/business/markets/brokerage-bullish-on-gail-tata-consumer-and-cipla-know-target-price-and-stop-loss-3025772"
     }
   ]
 }
