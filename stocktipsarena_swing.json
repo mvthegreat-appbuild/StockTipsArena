@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-24T05:56:34.944394+00:00",
-  "total": 24,
+  "updated": "2026-11-24T07:00:45.948192+00:00",
+  "total": 22,
   "trades": [
     {
       "id": "bp-7",
@@ -21,7 +21,7 @@
       "link": "https://www.livemint.com/market/stock-market-news/persistent-systems-ather-energy-shares-top-2-stocks-to-buy-on-25-nov-check-expected-returns-stop-loss-target-price-11795486721247.html"
     },
     {
-      "id": "bp-17",
+      "id": "bp-14",
       "symbol": "DEEPESH SARAWAGI HAS A",
       "name": "Deepesh Sarawagi has a",
       "advisor": "Choice Broking",
@@ -39,7 +39,7 @@
       "link": "https://www.news9live.com/business/markets/three-stocks-with-prospect-of-quick-gains-see-target-price-stop-loss-levels-from-brokerage-3027095"
     },
     {
-      "id": "bp-18",
+      "id": "bp-15",
       "symbol": "FEDERAL BANK",
       "name": "Federal Bank",
       "advisor": "Motilal Oswal",
@@ -57,7 +57,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-19",
+      "id": "bp-16",
       "symbol": "PHOENIX MILLS",
       "name": "Phoenix Mills",
       "advisor": "Motilal Oswal",
@@ -75,7 +75,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-20",
+      "id": "bp-17",
       "symbol": "APOLLO HOSPITALS",
       "name": "Apollo Hospitals",
       "advisor": "Motilal Oswal",
@@ -93,7 +93,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-21",
+      "id": "bp-18",
       "symbol": "INDIAN OIL CORPORATION",
       "name": "Indian Oil Corporation",
       "advisor": "Motilal Oswal",
@@ -111,7 +111,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-22",
+      "id": "bp-19",
       "symbol": "SRF",
       "name": "SRF",
       "advisor": "Motilal Oswal",
@@ -129,7 +129,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-23",
+      "id": "bp-20",
       "symbol": "HDFC LIFE",
       "name": "HDFC Life",
       "advisor": "Motilal Oswal",
@@ -147,7 +147,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-24",
+      "id": "bp-21",
       "symbol": "BAGADIA HAS A",
       "name": "Bagadia has a",
       "advisor": "Choice Broking",
@@ -381,58 +381,22 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-14",
-      "symbol": "1] LLOYDS ENGINEERING",
-      "name": "1] Lloyds Engineering",
+      "id": "bp-22",
+      "symbol": "DEEPESH SARAWAGI HAS A",
+      "name": "Deepesh Sarawagi has a",
       "advisor": "Choice Broking",
-      "source": "livemint.com",
+      "source": "news9live.com",
       "side": "BUY",
       "horizon": "Short term",
-      "date": "15 Nov 2026",
-      "sortdate": "2026-11-15",
-      "entry": 89.25,
-      "sl": 85.0,
-      "target": 98.0,
+      "date": "19 Nov 2026",
+      "sortdate": "2026-11-19",
+      "entry": 1131.0,
+      "sl": 1070.0,
+      "target": 1253.0,
       "cmp": null,
       "status": "active",
       "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/best-stocks-to-buy-under-rs-100-lloyds-engineering-niva-bupa-vedanta-power-by-sumeet-bagadia-targets-stoploss-11794674607528.html"
-    },
-    {
-      "id": "bp-15",
-      "symbol": "2] NIVA BUPA",
-      "name": "2] Niva Bupa",
-      "advisor": "Choice Broking",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "15 Nov 2026",
-      "sortdate": "2026-11-15",
-      "entry": 78.77,
-      "sl": 75.0,
-      "target": 86.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/best-stocks-to-buy-under-rs-100-lloyds-engineering-niva-bupa-vedanta-power-by-sumeet-bagadia-targets-stoploss-11794674607528.html"
-    },
-    {
-      "id": "bp-16",
-      "symbol": "3] VEDANTA POWER",
-      "name": "3] Vedanta Power",
-      "advisor": "Choice Broking",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "15 Nov 2026",
-      "sortdate": "2026-11-15",
-      "entry": 34.92,
-      "sl": 33.0,
-      "target": 38.5,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/best-stocks-to-buy-under-rs-100-lloyds-engineering-niva-bupa-vedanta-power-by-sumeet-bagadia-targets-stoploss-11794674607528.html"
+      "link": "https://www.news9live.com/business/markets/brokerage-bullish-on-gail-tata-consumer-and-cipla-know-target-price-and-stop-loss-3025772"
     }
   ]
 }
