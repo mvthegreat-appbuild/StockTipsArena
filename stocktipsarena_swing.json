@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-24T07:00:45.948192+00:00",
-  "total": 22,
+  "updated": "2026-11-24T08:28:43.820906+00:00",
+  "total": 25,
   "trades": [
     {
       "id": "bp-7",
@@ -21,7 +21,7 @@
       "link": "https://www.livemint.com/market/stock-market-news/persistent-systems-ather-energy-shares-top-2-stocks-to-buy-on-25-nov-check-expected-returns-stop-loss-target-price-11795486721247.html"
     },
     {
-      "id": "bp-14",
+      "id": "bp-17",
       "symbol": "DEEPESH SARAWAGI HAS A",
       "name": "Deepesh Sarawagi has a",
       "advisor": "Choice Broking",
@@ -39,7 +39,7 @@
       "link": "https://www.news9live.com/business/markets/three-stocks-with-prospect-of-quick-gains-see-target-price-stop-loss-levels-from-brokerage-3027095"
     },
     {
-      "id": "bp-15",
+      "id": "bp-18",
       "symbol": "FEDERAL BANK",
       "name": "Federal Bank",
       "advisor": "Motilal Oswal",
@@ -57,7 +57,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-16",
+      "id": "bp-19",
       "symbol": "PHOENIX MILLS",
       "name": "Phoenix Mills",
       "advisor": "Motilal Oswal",
@@ -75,7 +75,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-17",
+      "id": "bp-20",
       "symbol": "APOLLO HOSPITALS",
       "name": "Apollo Hospitals",
       "advisor": "Motilal Oswal",
@@ -93,7 +93,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-18",
+      "id": "bp-21",
       "symbol": "INDIAN OIL CORPORATION",
       "name": "Indian Oil Corporation",
       "advisor": "Motilal Oswal",
@@ -111,7 +111,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-19",
+      "id": "bp-22",
       "symbol": "SRF",
       "name": "SRF",
       "advisor": "Motilal Oswal",
@@ -129,7 +129,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-20",
+      "id": "bp-23",
       "symbol": "HDFC LIFE",
       "name": "HDFC Life",
       "advisor": "Motilal Oswal",
@@ -147,7 +147,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-21",
+      "id": "bp-24",
       "symbol": "BAGADIA HAS A",
       "name": "Bagadia has a",
       "advisor": "Choice Broking",
@@ -381,7 +381,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-22",
+      "id": "bp-25",
       "symbol": "DEEPESH SARAWAGI HAS A",
       "name": "Deepesh Sarawagi has a",
       "advisor": "Choice Broking",
@@ -397,6 +397,60 @@
       "status": "active",
       "note": "",
       "link": "https://www.news9live.com/business/markets/brokerage-bullish-on-gail-tata-consumer-and-cipla-know-target-price-and-stop-loss-3025772"
+    },
+    {
+      "id": "bp-14",
+      "symbol": "1] BHARTI AIRTEL",
+      "name": "1] Bharti Airtel",
+      "advisor": "Choice Broking",
+      "source": "livemint.com",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "16 Nov 2026",
+      "sortdate": "2026-11-16",
+      "entry": 2106.0,
+      "sl": 1990.0,
+      "target": 2340.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-bharti-airtel-bajaj-finance-nestle-by-sumeet-bagadia-targets-stop-loss-market-prediction-11794622858676.html"
+    },
+    {
+      "id": "bp-15",
+      "symbol": "2] BAJAJ FINANCE",
+      "name": "2] Bajaj Finance",
+      "advisor": "Choice Broking",
+      "source": "livemint.com",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "16 Nov 2026",
+      "sortdate": "2026-11-16",
+      "entry": 1117.0,
+      "sl": 1045.0,
+      "target": 1260.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-bharti-airtel-bajaj-finance-nestle-by-sumeet-bagadia-targets-stop-loss-market-prediction-11794622858676.html"
+    },
+    {
+      "id": "bp-16",
+      "symbol": "3] NESTLE INDIA",
+      "name": "3] Nestle India",
+      "advisor": "Choice Broking",
+      "source": "livemint.com",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "16 Nov 2026",
+      "sortdate": "2026-11-16",
+      "entry": 1263.0,
+      "sl": 1195.0,
+      "target": 1400.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-bharti-airtel-bajaj-finance-nestle-by-sumeet-bagadia-targets-stop-loss-market-prediction-11794622858676.html"
     }
   ]
 }
