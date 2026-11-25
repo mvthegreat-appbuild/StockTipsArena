@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-25T07:10:07.428292+00:00",
-  "total": 14,
+  "updated": "2026-11-25T08:59:36.179628+00:00",
+  "total": 11,
   "trades": [
     {
-      "id": "bp-4",
+      "id": "bp-1",
       "symbol": "HE HAS ALSO RECOMMENDED A",
       "name": "He has also recommended a",
       "advisor": "Motilal Oswal",
@@ -21,7 +21,7 @@
       "link": "https://www.livemint.com/market/stock-market-news/persistent-systems-ather-energy-shares-top-2-stocks-to-buy-on-25-nov-check-expected-returns-stop-loss-target-price-11795486721247.html"
     },
     {
-      "id": "bp-8",
+      "id": "bp-5",
       "symbol": "DEEPESH SARAWAGI HAS A",
       "name": "Deepesh Sarawagi has a",
       "advisor": "Choice Broking",
@@ -39,7 +39,7 @@
       "link": "https://www.news9live.com/business/markets/three-stocks-with-prospect-of-quick-gains-see-target-price-stop-loss-levels-from-brokerage-3027095"
     },
     {
-      "id": "bp-9",
+      "id": "bp-6",
       "symbol": "FEDERAL BANK",
       "name": "Federal Bank",
       "advisor": "Motilal Oswal",
@@ -57,7 +57,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-10",
+      "id": "bp-7",
       "symbol": "PHOENIX MILLS",
       "name": "Phoenix Mills",
       "advisor": "Motilal Oswal",
@@ -75,7 +75,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-11",
+      "id": "bp-8",
       "symbol": "APOLLO HOSPITALS",
       "name": "Apollo Hospitals",
       "advisor": "Motilal Oswal",
@@ -93,7 +93,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-12",
+      "id": "bp-9",
       "symbol": "INDIAN OIL CORPORATION",
       "name": "Indian Oil Corporation",
       "advisor": "Motilal Oswal",
@@ -111,7 +111,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-13",
+      "id": "bp-10",
       "symbol": "SRF",
       "name": "SRF",
       "advisor": "Motilal Oswal",
@@ -129,7 +129,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-14",
+      "id": "bp-11",
       "symbol": "HDFC LIFE",
       "name": "HDFC Life",
       "advisor": "Motilal Oswal",
@@ -147,61 +147,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-1",
-      "symbol": "1] SWIGGY",
-      "name": "1] Swiggy",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "22 Nov 2026",
-      "sortdate": "2026-11-22",
-      "entry": 179.0,
-      "sl": 175.0,
-      "target": 190.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-swiggy-tata-chemicals-amber-enterprises-by-ganesh-dongre-of-anand-rathi-targets-stoploss-11795312924053.html"
-    },
-    {
       "id": "bp-2",
-      "symbol": "2] TATA CHEMICALS",
-      "name": "2] Tata Chemicals",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "22 Nov 2026",
-      "sortdate": "2026-11-22",
-      "entry": 640.0,
-      "sl": 610.0,
-      "target": 700.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-swiggy-tata-chemicals-amber-enterprises-by-ganesh-dongre-of-anand-rathi-targets-stoploss-11795312924053.html"
-    },
-    {
-      "id": "bp-3",
-      "symbol": "3] AMBER ENTERPRISES",
-      "name": "3] Amber Enterprises",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "22 Nov 2026",
-      "sortdate": "2026-11-22",
-      "entry": 6750.0,
-      "sl": 6300.0,
-      "target": 7300.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-swiggy-tata-chemicals-amber-enterprises-by-ganesh-dongre-of-anand-rathi-targets-stoploss-11795312924053.html"
-    },
-    {
-      "id": "bp-5",
       "symbol": "SHREE CEMENT",
       "name": "Shree Cement",
       "advisor": "Angel One",
@@ -219,7 +165,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-6",
+      "id": "bp-3",
       "symbol": "HYUNDAI MOTOR INDIA",
       "name": "Hyundai Motor India",
       "advisor": "Angel One",
@@ -237,7 +183,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-7",
+      "id": "bp-4",
       "symbol": "ADANI POWER",
       "name": "Adani Power",
       "advisor": "Angel One",
