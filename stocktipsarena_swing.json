@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-26T10:01:49.404110+00:00",
-  "total": 11,
+  "updated": "2026-11-26T11:01:50.459259+00:00",
+  "total": 10,
   "trades": [
     {
       "id": "bp-1",
@@ -37,24 +37,6 @@
       "status": "active",
       "note": "",
       "link": "https://www.livemint.com/market/stock-market-news/persistent-systems-ather-energy-shares-top-2-stocks-to-buy-on-25-nov-check-expected-returns-stop-loss-target-price-11795486721247.html"
-    },
-    {
-      "id": "bp-11",
-      "symbol": "DEEPESH SARAWAGI HAS A",
-      "name": "Deepesh Sarawagi has a",
-      "advisor": "Choice Broking",
-      "source": "news9live.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "24 Nov 2026",
-      "sortdate": "2026-11-24",
-      "entry": 1700.0,
-      "sl": 1600.0,
-      "target": 1900.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.news9live.com/business/markets/three-stocks-with-prospect-of-quick-gains-see-target-price-stop-loss-levels-from-brokerage-3027095"
     },
     {
       "id": "bp-3",
