@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-26T07:03:33.484472+00:00",
-  "total": 16,
+  "updated": "2026-11-26T08:34:21.718102+00:00",
+  "total": 15,
   "trades": [
     {
       "id": "bp-1",
@@ -19,24 +19,6 @@
       "status": "active",
       "note": "",
       "link": "https://www.livemint.com/market/stock-market-news/devyani-intl-doms-industries-shares-top-2-stocks-to-buy-in-near-term-check-target-price-stop-loss-by-nagaraj-shetti-11795622752268.html"
-    },
-    {
-      "id": "bp-10",
-      "symbol": "DEEPESH SARAWAGI HAS A",
-      "name": "Deepesh Sarawagi has a",
-      "advisor": "Choice Broking",
-      "source": "news9live.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "24 Nov 2026",
-      "sortdate": "2026-11-24",
-      "entry": 1700.0,
-      "sl": 1600.0,
-      "target": 1900.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.news9live.com/business/markets/three-stocks-with-prospect-of-quick-gains-see-target-price-stop-loss-levels-from-brokerage-3027095"
     },
     {
       "id": "bp-2",
@@ -129,7 +111,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-11",
+      "id": "bp-10",
       "symbol": "FEDERAL BANK",
       "name": "Federal Bank",
       "advisor": "Motilal Oswal",
@@ -147,7 +129,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-12",
+      "id": "bp-11",
       "symbol": "PHOENIX MILLS",
       "name": "Phoenix Mills",
       "advisor": "Motilal Oswal",
@@ -165,7 +147,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-13",
+      "id": "bp-12",
       "symbol": "APOLLO HOSPITALS",
       "name": "Apollo Hospitals",
       "advisor": "Motilal Oswal",
@@ -183,7 +165,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-14",
+      "id": "bp-13",
       "symbol": "INDIAN OIL CORPORATION",
       "name": "Indian Oil Corporation",
       "advisor": "Motilal Oswal",
@@ -201,7 +183,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-15",
+      "id": "bp-14",
       "symbol": "SRF",
       "name": "SRF",
       "advisor": "Motilal Oswal",
@@ -219,7 +201,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-16",
+      "id": "bp-15",
       "symbol": "HDFC LIFE",
       "name": "HDFC Life",
       "advisor": "Motilal Oswal",
