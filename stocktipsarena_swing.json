@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-26T05:59:28.872456+00:00",
-  "total": 17,
+  "updated": "2026-11-26T07:03:33.484472+00:00",
+  "total": 16,
   "trades": [
     {
       "id": "bp-1",
@@ -21,25 +21,7 @@
       "link": "https://www.livemint.com/market/stock-market-news/devyani-intl-doms-industries-shares-top-2-stocks-to-buy-in-near-term-check-target-price-stop-loss-by-nagaraj-shetti-11795622752268.html"
     },
     {
-      "id": "bp-2",
-      "symbol": "HE HAS ALSO RECOMMENDED A",
-      "name": "He has also recommended a",
-      "advisor": "Motilal Oswal",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "24 Nov 2026",
-      "sortdate": "2026-11-24",
-      "entry": 1979.0,
-      "sl": 1920.0,
-      "target": 2100.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/persistent-systems-ather-energy-shares-top-2-stocks-to-buy-on-25-nov-check-expected-returns-stop-loss-target-price-11795486721247.html"
-    },
-    {
-      "id": "bp-11",
+      "id": "bp-10",
       "symbol": "DEEPESH SARAWAGI HAS A",
       "name": "Deepesh Sarawagi has a",
       "advisor": "Choice Broking",
@@ -57,7 +39,7 @@
       "link": "https://www.news9live.com/business/markets/three-stocks-with-prospect-of-quick-gains-see-target-price-stop-loss-levels-from-brokerage-3027095"
     },
     {
-      "id": "bp-3",
+      "id": "bp-2",
       "symbol": "APOLLO HOSPITALS",
       "name": "Apollo Hospitals",
       "advisor": "Prabhudas Lilladher",
@@ -75,7 +57,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-4",
+      "id": "bp-3",
       "symbol": "DLF",
       "name": "DLF",
       "advisor": "Prabhudas Lilladher",
@@ -93,7 +75,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-5",
+      "id": "bp-4",
       "symbol": "GE VERNOVA T&D INDIA",
       "name": "GE Vernova T&D India",
       "advisor": "Prabhudas Lilladher",
@@ -111,7 +93,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-6",
+      "id": "bp-5",
       "symbol": "HBL ENGINEERING",
       "name": "HBL Engineering",
       "advisor": "Prabhudas Lilladher",
@@ -129,7 +111,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-7",
+      "id": "bp-6",
       "symbol": "JINDAL STEEL",
       "name": "Jindal Steel",
       "advisor": "Prabhudas Lilladher",
@@ -147,7 +129,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-12",
+      "id": "bp-11",
       "symbol": "FEDERAL BANK",
       "name": "Federal Bank",
       "advisor": "Motilal Oswal",
@@ -165,7 +147,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-13",
+      "id": "bp-12",
       "symbol": "PHOENIX MILLS",
       "name": "Phoenix Mills",
       "advisor": "Motilal Oswal",
@@ -183,7 +165,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-14",
+      "id": "bp-13",
       "symbol": "APOLLO HOSPITALS",
       "name": "Apollo Hospitals",
       "advisor": "Motilal Oswal",
@@ -201,7 +183,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-15",
+      "id": "bp-14",
       "symbol": "INDIAN OIL CORPORATION",
       "name": "Indian Oil Corporation",
       "advisor": "Motilal Oswal",
@@ -219,7 +201,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-16",
+      "id": "bp-15",
       "symbol": "SRF",
       "name": "SRF",
       "advisor": "Motilal Oswal",
@@ -237,7 +219,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-17",
+      "id": "bp-16",
       "symbol": "HDFC LIFE",
       "name": "HDFC Life",
       "advisor": "Motilal Oswal",
@@ -255,7 +237,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-targets-26300-banks-auto-and-realty-look-strong/articleshow/136085634.cms?from=mdr"
     },
     {
-      "id": "bp-8",
+      "id": "bp-7",
       "symbol": "SHREE CEMENT",
       "name": "Shree Cement",
       "advisor": "Angel One",
@@ -273,7 +255,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-9",
+      "id": "bp-8",
       "symbol": "HYUNDAI MOTOR INDIA",
       "name": "Hyundai Motor India",
       "advisor": "Angel One",
@@ -291,7 +273,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-10",
+      "id": "bp-9",
       "symbol": "ADANI POWER",
       "name": "Adani Power",
       "advisor": "Angel One",
