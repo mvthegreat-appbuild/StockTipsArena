@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-27T08:59:02.153879+00:00",
-  "total": 22,
+  "updated": "2026-11-27T10:00:11.359965+00:00",
+  "total": 15,
   "trades": [
     {
-      "id": "bp-7",
+      "id": "bp-1",
       "symbol": "KANSAI NEROLAC",
       "name": "Kansai Nerolac",
       "advisor": "Motilal Oswal",
@@ -21,7 +21,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-8",
+      "id": "bp-2",
       "symbol": "TATA CONSUMER",
       "name": "Tata Consumer",
       "advisor": "Motilal Oswal",
@@ -39,7 +39,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-9",
+      "id": "bp-3",
       "symbol": "AGARWAL EYE",
       "name": "Agarwal Eye",
       "advisor": "Motilal Oswal",
@@ -57,7 +57,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-10",
+      "id": "bp-4",
       "symbol": "TECH MAHINDRA",
       "name": "Tech Mahindra",
       "advisor": "Motilal Oswal",
@@ -75,7 +75,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-11",
+      "id": "bp-5",
       "symbol": "ANGEL ONE",
       "name": "Angel One",
       "advisor": "Motilal Oswal",
@@ -93,7 +93,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-12",
+      "id": "bp-6",
       "symbol": "DEVYANI INTERNATIONAL",
       "name": "Devyani International",
       "advisor": "HDFC Securities",
@@ -111,7 +111,7 @@
       "link": "https://www.livemint.com/market/stock-market-news/devyani-intl-doms-industries-shares-top-2-stocks-to-buy-in-near-term-check-target-price-stop-loss-by-nagaraj-shetti-11795622752268.html"
     },
     {
-      "id": "bp-13",
+      "id": "bp-7",
       "symbol": "HE HAS ALSO RECOMMENDED A",
       "name": "He has also recommended a",
       "advisor": "Motilal Oswal",
@@ -129,25 +129,7 @@
       "link": "https://www.livemint.com/market/stock-market-news/persistent-systems-ather-energy-shares-top-2-stocks-to-buy-on-25-nov-check-expected-returns-stop-loss-target-price-11795486721247.html"
     },
     {
-      "id": "bp-22",
-      "symbol": "DEEPESH SARAWAGI HAS A",
-      "name": "Deepesh Sarawagi has a",
-      "advisor": "Choice Broking",
-      "source": "news9live.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "24 Nov 2026",
-      "sortdate": "2026-11-24",
-      "entry": 1700.0,
-      "sl": 1600.0,
-      "target": 1900.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.news9live.com/business/markets/three-stocks-with-prospect-of-quick-gains-see-target-price-stop-loss-levels-from-brokerage-3027095"
-    },
-    {
-      "id": "bp-14",
+      "id": "bp-8",
       "symbol": "APOLLO HOSPITALS",
       "name": "Apollo Hospitals",
       "advisor": "Prabhudas Lilladher",
@@ -165,7 +147,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-15",
+      "id": "bp-9",
       "symbol": "DLF",
       "name": "DLF",
       "advisor": "Prabhudas Lilladher",
@@ -183,7 +165,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-16",
+      "id": "bp-10",
       "symbol": "GE VERNOVA T&D INDIA",
       "name": "GE Vernova T&D India",
       "advisor": "Prabhudas Lilladher",
@@ -201,7 +183,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-17",
+      "id": "bp-11",
       "symbol": "HBL ENGINEERING",
       "name": "HBL Engineering",
       "advisor": "Prabhudas Lilladher",
@@ -219,7 +201,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-18",
+      "id": "bp-12",
       "symbol": "JINDAL STEEL",
       "name": "Jindal Steel",
       "advisor": "Prabhudas Lilladher",
@@ -237,61 +219,7 @@
       "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
-      "id": "bp-1",
-      "symbol": "1] SWIGGY",
-      "name": "1] Swiggy",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "22 Nov 2026",
-      "sortdate": "2026-11-22",
-      "entry": 179.0,
-      "sl": 175.0,
-      "target": 190.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-swiggy-tata-chemicals-amber-enterprises-by-ganesh-dongre-of-anand-rathi-targets-stoploss-11795312924053.html"
-    },
-    {
-      "id": "bp-2",
-      "symbol": "2] TATA CHEMICALS",
-      "name": "2] Tata Chemicals",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "22 Nov 2026",
-      "sortdate": "2026-11-22",
-      "entry": 640.0,
-      "sl": 610.0,
-      "target": 700.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-swiggy-tata-chemicals-amber-enterprises-by-ganesh-dongre-of-anand-rathi-targets-stoploss-11795312924053.html"
-    },
-    {
-      "id": "bp-3",
-      "symbol": "3] AMBER ENTERPRISES",
-      "name": "3] Amber Enterprises",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "22 Nov 2026",
-      "sortdate": "2026-11-22",
-      "entry": 6750.0,
-      "sl": 6300.0,
-      "target": 7300.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-swiggy-tata-chemicals-amber-enterprises-by-ganesh-dongre-of-anand-rathi-targets-stoploss-11795312924053.html"
-    },
-    {
-      "id": "bp-19",
+      "id": "bp-13",
       "symbol": "SHREE CEMENT",
       "name": "Shree Cement",
       "advisor": "Angel One",
@@ -309,7 +237,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-20",
+      "id": "bp-14",
       "symbol": "HYUNDAI MOTOR INDIA",
       "name": "Hyundai Motor India",
       "advisor": "Angel One",
@@ -327,7 +255,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-21",
+      "id": "bp-15",
       "symbol": "ADANI POWER",
       "name": "Adani Power",
       "advisor": "Angel One",
@@ -343,60 +271,6 @@
       "status": "active",
       "note": "",
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
-    },
-    {
-      "id": "bp-4",
-      "symbol": "1] REDINGTON",
-      "name": "1] Redington",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "15 Nov 2026",
-      "sortdate": "2026-11-15",
-      "entry": 350.0,
-      "sl": 340.0,
-      "target": 380.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-redington-aster-dm-canara-bank-by-ganesh-dongre-of-anand-rathi-targets-stop-loss-market-view-11794710212072.html"
-    },
-    {
-      "id": "bp-5",
-      "symbol": "2] ASTER DM",
-      "name": "2] Aster DM",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "15 Nov 2026",
-      "sortdate": "2026-11-15",
-      "entry": 720.0,
-      "sl": 710.0,
-      "target": 760.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-redington-aster-dm-canara-bank-by-ganesh-dongre-of-anand-rathi-targets-stop-loss-market-view-11794710212072.html"
-    },
-    {
-      "id": "bp-6",
-      "symbol": "3] CANARA BANK",
-      "name": "3] Canara Bank",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "15 Nov 2026",
-      "sortdate": "2026-11-15",
-      "entry": 130.0,
-      "sl": 125.0,
-      "target": 140.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-redington-aster-dm-canara-bank-by-ganesh-dongre-of-anand-rathi-targets-stop-loss-market-view-11794710212072.html"
     }
   ]
 }
