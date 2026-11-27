@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-27T10:52:44.028654+00:00",
-  "total": 16,
+  "updated": "2026-11-27T11:51:46.454788+00:00",
+  "total": 19,
   "trades": [
     {
-      "id": "bp-7",
+      "id": "bp-4",
       "symbol": "KANSAI NEROLAC",
       "name": "Kansai Nerolac",
       "advisor": "Motilal Oswal",
@@ -21,7 +21,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-8",
+      "id": "bp-5",
       "symbol": "TATA CONSUMER",
       "name": "Tata Consumer",
       "advisor": "Motilal Oswal",
@@ -39,7 +39,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-9",
+      "id": "bp-6",
       "symbol": "AGARWAL EYE",
       "name": "Agarwal Eye",
       "advisor": "Motilal Oswal",
@@ -57,7 +57,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-10",
+      "id": "bp-7",
       "symbol": "TECH MAHINDRA",
       "name": "Tech Mahindra",
       "advisor": "Motilal Oswal",
@@ -75,7 +75,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-11",
+      "id": "bp-8",
       "symbol": "ANGEL ONE",
       "name": "Angel One",
       "advisor": "Motilal Oswal",
@@ -93,7 +93,7 @@
       "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms"
     },
     {
-      "id": "bp-12",
+      "id": "bp-9",
       "symbol": "DEVYANI INTERNATIONAL",
       "name": "Devyani International",
       "advisor": "HDFC Securities",
@@ -111,7 +111,7 @@
       "link": "https://www.livemint.com/market/stock-market-news/devyani-intl-doms-industries-shares-top-2-stocks-to-buy-in-near-term-check-target-price-stop-loss-by-nagaraj-shetti-11795622752268.html"
     },
     {
-      "id": "bp-13",
+      "id": "bp-10",
       "symbol": "HE HAS ALSO RECOMMENDED A",
       "name": "He has also recommended a",
       "advisor": "Motilal Oswal",
@@ -127,6 +127,114 @@
       "status": "active",
       "note": "",
       "link": "https://www.livemint.com/market/stock-market-news/persistent-systems-ather-energy-shares-top-2-stocks-to-buy-on-25-nov-check-expected-returns-stop-loss-target-price-11795486721247.html"
+    },
+    {
+      "id": "bp-19",
+      "symbol": "DEEPESH SARAWAGI HAS A",
+      "name": "Deepesh Sarawagi has a",
+      "advisor": "Choice Broking",
+      "source": "news9live.com",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "24 Nov 2026",
+      "sortdate": "2026-11-24",
+      "entry": 1700.0,
+      "sl": 1600.0,
+      "target": 1900.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://www.news9live.com/business/markets/three-stocks-with-prospect-of-quick-gains-see-target-price-stop-loss-levels-from-brokerage-3027095"
+    },
+    {
+      "id": "bp-11",
+      "symbol": "APOLLO HOSPITALS",
+      "name": "Apollo Hospitals",
+      "advisor": "Prabhudas Lilladher",
+      "source": "univest.in",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "23 Nov 2026",
+      "sortdate": "2026-11-23",
+      "entry": 8448.0,
+      "sl": 7000.0,
+      "target": 9800.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
+    },
+    {
+      "id": "bp-12",
+      "symbol": "DLF",
+      "name": "DLF",
+      "advisor": "Prabhudas Lilladher",
+      "source": "univest.in",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "23 Nov 2026",
+      "sortdate": "2026-11-23",
+      "entry": 691.55,
+      "sl": 570.0,
+      "target": 860.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
+    },
+    {
+      "id": "bp-13",
+      "symbol": "GE VERNOVA T&D INDIA",
+      "name": "GE Vernova T&D India",
+      "advisor": "Prabhudas Lilladher",
+      "source": "univest.in",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "23 Nov 2026",
+      "sortdate": "2026-11-23",
+      "entry": 3970.0,
+      "sl": 3400.0,
+      "target": 5100.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
+    },
+    {
+      "id": "bp-14",
+      "symbol": "HBL ENGINEERING",
+      "name": "HBL Engineering",
+      "advisor": "Prabhudas Lilladher",
+      "source": "univest.in",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "23 Nov 2026",
+      "sortdate": "2026-11-23",
+      "entry": 799.35,
+      "sl": 670.0,
+      "target": 1000.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
+    },
+    {
+      "id": "bp-15",
+      "symbol": "JINDAL STEEL",
+      "name": "Jindal Steel",
+      "advisor": "Prabhudas Lilladher",
+      "source": "univest.in",
+      "side": "BUY",
+      "horizon": "Short term",
+      "date": "23 Nov 2026",
+      "sortdate": "2026-11-23",
+      "entry": 1050.0,
+      "sl": 900.0,
+      "target": 1290.0,
+      "cmp": null,
+      "status": "active",
+      "note": "",
+      "link": "https://univest.in/blogs/diwali-stock-picks-2026-pl-capital-top-10-stocks-to-buy-target-stop-loss"
     },
     {
       "id": "bp-1",
@@ -183,61 +291,7 @@
       "link": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-swiggy-tata-chemicals-amber-enterprises-by-ganesh-dongre-of-anand-rathi-targets-stoploss-11795312924053.html"
     },
     {
-      "id": "bp-4",
-      "symbol": "1] JAMMU AND KASHMIR BANK",
-      "name": "1] Jammu and Kashmir Bank",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "21 Nov 2026",
-      "sortdate": "2026-11-21",
-      "entry": 150.0,
-      "sl": 143.0,
-      "target": 160.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/best-3-stocks-to-buy-under-rs-200-jammu-and-kashmir-bank-canara-bank-bank-of-india-by-mehul-kothari-of-anand-rathi-11795191036501.html"
-    },
-    {
-      "id": "bp-5",
-      "symbol": "2] CANARA BANK",
-      "name": "2] Canara Bank",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "21 Nov 2026",
-      "sortdate": "2026-11-21",
-      "entry": 138.0,
-      "sl": 134.0,
-      "target": 146.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/best-3-stocks-to-buy-under-rs-200-jammu-and-kashmir-bank-canara-bank-bank-of-india-by-mehul-kothari-of-anand-rathi-11795191036501.html"
-    },
-    {
-      "id": "bp-6",
-      "symbol": "3] BANK OF INDIA",
-      "name": "3] Bank of India",
-      "advisor": "Anand Rathi",
-      "source": "livemint.com",
-      "side": "BUY",
-      "horizon": "Short term",
-      "date": "21 Nov 2026",
-      "sortdate": "2026-11-21",
-      "entry": 164.0,
-      "sl": 158.0,
-      "target": 174.0,
-      "cmp": null,
-      "status": "active",
-      "note": "",
-      "link": "https://www.livemint.com/market/stock-market-news/best-3-stocks-to-buy-under-rs-200-jammu-and-kashmir-bank-canara-bank-bank-of-india-by-mehul-kothari-of-anand-rathi-11795191036501.html"
-    },
-    {
-      "id": "bp-14",
+      "id": "bp-16",
       "symbol": "SHREE CEMENT",
       "name": "Shree Cement",
       "advisor": "Angel One",
@@ -255,7 +309,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-15",
+      "id": "bp-17",
       "symbol": "HYUNDAI MOTOR INDIA",
       "name": "Hyundai Motor India",
       "advisor": "Angel One",
@@ -273,7 +327,7 @@
       "link": "https://timesofindia.indiatimes.com/business/india-business/top-stock-recommendations-for-november-20-2026-shree-cement-hyundai-motor-india-adani-power-stocks-to-buy-today/articleshow/136011005.cms"
     },
     {
-      "id": "bp-16",
+      "id": "bp-18",
       "symbol": "ADANI POWER",
       "name": "Adani Power",
       "advisor": "Angel One",
